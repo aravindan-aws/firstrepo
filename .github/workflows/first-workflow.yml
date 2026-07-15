@@ -10,4 +10,7 @@ jobs:
         run: echo "Welcome"
         
       - name: List files
-        run: ls && pwd
+        run: ls
+      
+      - name: Working directory
+        run: pwd
