@@ -1,10 +1,16 @@
 name: Workflow Test
 
-on: push
+on: 
+    workflow_dispatch:
+        inputs:
+          welcomename:
+            required: true
+            description: Type your name to Print message
+            type: string
 
 jobs:
   First-Job:
     runs-on: ubuntu-latest
-    steps:
+    steps:  
     - name: Welcome Message
       run: echo "Welcome to My Workflow!"
