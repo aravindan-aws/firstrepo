@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:  
     - name: Welcome Message
-      run: echo "Welcome to My Workflow!"
+      run: echo "Welcome" ${{inputs.welcomename}} "to My Workflow!"
