@@ -1,16 +1,16 @@
 name: Workflow Test
 
 on: 
-    workflow_dispatch:
-        inputs:
-          welcomename:
-            required: true
-            description: Type your name to Print message
-            type: string
+    push:
+        branches:
+          - main
+    pull_request:
+      branches:
+        - main
 
 jobs:
   First-Job:
     runs-on: ubuntu-latest
     steps:  
     - name: Welcome Message
-      run: echo "Welcome" ${{inputs.welcomename}} "to My Workflow!"
+      run: echo "Welcome to My Workflow!"
