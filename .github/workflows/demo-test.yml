@@ -22,7 +22,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.14]
+        python-version: [3.13]
     steps:
     - name: Checkout
       uses: actions/checkout@v7
@@ -31,13 +31,12 @@ jobs:
       run: cat README.md
 
     - name: Python Setup of ${{ matrix.python-version }} version
-      if: github.ref == 'refs/heads/main' && success()
       uses: actions/setup-python@v7
       with:
         python-version: $ {{ matrix.python-version }}
 
     - name: Version Check
-      continue-on-error: true
+      if: github.ref == 'refs/heads/main' && success()
       run: python --version
 
   Third-Job:
