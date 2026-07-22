@@ -7,6 +7,9 @@ on:
     pull_request:
       branches:
         - main
+env:
+  python-version-a: 3.13
+  python-version-b: 3.14
 
 jobs:
   First-Job:
@@ -20,7 +23,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.13, 3.11]  
+        python-version: [${{ env.python-version-a }}, ${{ env.python-version-b }}]
     steps:
     - name: Checkout
       uses: actions/checkout@v7
