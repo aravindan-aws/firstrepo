@@ -22,7 +22,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [3.13, 3.14]
+        python-version: [3.12, 3.14]
     steps:
     - name: Checkout
       uses: actions/checkout@v7
@@ -32,11 +32,11 @@ jobs:
 
     - name: Python Setup of ${{ matrix.python-version }} version
       uses: actions/setup-python@v7
-      continue-on-error: true
       with:
         python-version: $ {{ matrix.python-version }}
 
     - name: Version Check
+      continue-on-error: false
       run: python --version
 
   Third-Job:
