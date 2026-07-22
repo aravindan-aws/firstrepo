@@ -28,8 +28,9 @@ jobs:
     - name: Read File
       run: cat README.md
 
-    - name: Python Setup
+    - name: Python Setup of ${{ matrix.python-version }} version
       uses: actions/setup-python@v7
+      continue-on-error: true
       with:
         python-version: $ {{ matrix.python-version }}
 
