@@ -48,6 +48,6 @@ jobs:
       run: echo "This is a test file" > test.txt
 
     - name: Artifact Upload
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v7
       with:
         name: test-artifact
