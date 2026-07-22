@@ -14,3 +14,23 @@ jobs:
     steps:  
     - name: Welcome Message
       run: echo "Welcome to My Workflow!"
+
+  Second-Job:
+    runs-on: ubuntu-latest
+    needs: First-Job
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v7
+
+    - name: Read File
+      run: cat README.md
+
+    - name: Python Setup
+      uses: actions/setup-python@v7
+      with:
+        python-version: '3.13'
+
+    - name: Version Check
+      run: python --version
+
+    
