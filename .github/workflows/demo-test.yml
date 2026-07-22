@@ -31,7 +31,7 @@ jobs:
       run: cat README.md
 
     - name: Python Setup of ${{ matrix.python-version }} version
-      continue-on-error: true
+      if: github.ref == 'refs/heads/main' && success()
       uses: actions/setup-python@v7
       with:
         python-version: $ {{ matrix.python-version }}
