@@ -8,22 +8,21 @@ on:
       branches:
         - main
 env:
-  python-version-a: 3.13
-  python-version-b: 3.14
+  name: "Aravind"
 
 jobs:
   First-Job:
     runs-on: ubuntu-latest
     steps:  
     - name: Welcome Message
-      run: echo "Welcome to My Workflow!"
+      run: echo "Welcome" ${{ env.name }} "to My Workflow!"
 
   Second-Job:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
       matrix:
-        python-version: [${{ env.python-version-a }}, ${{ env.python-version-b }}]
+        python-version: [3.13, 3.14]
     steps:
     - name: Checkout
       uses: actions/checkout@v7
